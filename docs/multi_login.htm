@@ -1,0 +1,109 @@
+<html>
+<head>
+<!--
+     NOTE:
+     To include graphics on this page, place the graphics in the public subdirectory
+  and use links such as:
+     <img src="/public/logo.gif">
+     It is important to use /public/ instead of just public/ since some EZproxy
+     login URLs are not be relative to /
+-->
+	    
+	        <link rel="stylesheet" type="text/css" href="https://secure.library.unl.edu:443/screens/styles-rev2b.css"/>
+	    
+	    
+	        <link rel="stylesheet" type="text/css" href="https://secure.library.unl.edu:443/apps/CAS/resources/login.css"/>
+	   <script type="text/javascript" src="public/jquery.js"></script>
+	   <script type="text/javascript">
+	   	$(document).ready(function(){
+	   		$("#authSelect").change(
+	   	
+	   			function(){
+	   				auth = $(this).val();
+	   				if (auth == 'sierra'){
+	   					$("#sierra_form").show();
+	   				}
+	   				else{
+	   					//$(this).form.submit();
+	   					$(this).closest('form').trigger('submit');
+	   				}
+	   				
+	   			});
+	   	});
+	   	</script>     
+</head>
+<body>
+<style>
+input {font-family:Arial,sans-serif;}
+form {margin:0;}
+div#login{width:auto;}
+#login fieldset {padding:10px;}
+#displayContent div {padding:0;}
+.pin label {margin-top:30px;}
+.required {background:#fff;}
+input.btn-submit {margin:5px;}
+#accessibleForm {border:0;}
+#cas #accessibleForm fieldset input { border:1px solid #999999;}
+#sierra_form {display:none;}
+</style>
+
+<div class="pageContentInner">
+
+<h1 class="pageHeader"> Choose how to Login to EZproxy:</h1>
+
+<div class="form1Part formLogin" id="accessibleForm">
+
+<div id="displayContent">
+
+<form id="fm1" class="fm-v clearfix" method="post" action="/login">
+<input type="hidden" name="url" value="^U" />
+	<div id="login">
+	  <fieldset>
+	    <legend>Login Form</legend>
+		 <select name="auth" id="authSelect">
+			<option value="">Select the login option:</option>
+			<option value="sierra">Login with Innovative's patron api</option>
+			<option value="cas-library">Login with My Library</option>
+			<option value="cas-unl">Login with My.UNL</option>
+		</select> 
+
+	  </fieldset>
+	</div>  <!-- end login -->
+	<div id="sierra_form">
+			<div class="name">
+	          <label for="name">Your Last Name:</label>
+	          
+	          <input id="name" name="pass" class="required" tabindex="3" accesskey="n" type="text" value="" size="20" maxlength="40"/>
+	        </div><!-- end name -->
+	      
+	      
+		      <div class="code">
+		        <label for="code">UNL ID (without issue number) or Community User number </label>
+		        		<input id="code" name="user" class="required" tabindex="4" accesskey="b" type="text" value="" size="20" maxlength="40"/>
+		      </div> <!-- end code -->
+	      <!--display pin if required-->
+        			<div class="pin">
+		          		<label for="pin">Enter your password in the box below</label>
+		          		
+		          		<input id="pin" name="pin" class="required" tabindex="6" accesskey="p" type="password" value="" size="20" maxlength="40" autocomplete="off"/>
+		        	</div> <!-- end pin -->
+	  	  
+			  <div id="pinreset">
+				  <a href="https://library.unl.edu:443/pinreset">forgot your Library Password?</a>
+			  </div>
+			     <div class="submit">
+      		<input class="btn-submit" accesskey="l" value="LOGIN" tabindex="9" type="submit" />
+	    
+  	</div>
+		</div>
+ 
+</form>
+</div> <!-- end displayContent -->
+	
+	  	</div> <!-- end #accessibleForm div -->
+
+<div class="clear"></div>
+
+</div>
+</body>
+</html>

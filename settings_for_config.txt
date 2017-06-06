@@ -1,0 +1,118 @@
+
+
+##  Logging == see: http://www.oclc.org/support/documentation/ezproxy/cfg/logformat/
+##                                            AND
+##                  http://www.oclc.org/support/documentation/ezproxy/cfg/logfile/
+
+
+LogFormat %h %l %u %t "%r" %s %b
+LogFile -strftime ezp%Y%m.log
+LogSPU -strftime spu%Y%m%d.log %{%Y/%m/%d:%H:%M:%S}t\t%h\t%{ezproxy-groups}i\t%{ezproxy-spuaccess}i\t%v\t%U
+
+
+# **************************** Database Definitions *****************************************?
+##  See http://www.oclc.org/support/documentation/ezproxy/db/default.htm
+
+##  The following databases require no authentication,
+##  but demonstrate EZproxy functionality, and can be used for testing.
+##  Remove as desired.
+## leave these in for general accessibilty
+
+T Worldcat.org
+U http://worldcat.org
+DJ worldcat.org
+
+T WhatIsMyIP
+U http://whatismyip.com
+DJ whatismyip.com
+
+
+##  Many sites use dx.doi.org when linking from one database to another.
+##  This definition is recommended for all configurations.?
+##  See http://www.oclc.org/support/documentation/ezproxy/db/doi.htm for details 
+
+Title -hide DOI System
+URL http://dx.doi.org
+Domain doi.org
+
+
+
+## Any resources that follow the next group designation are restricted to affiliates of UNL
+
+Group Faculty+Staff+Graduate+Undergrad+Metafind+DistanceEd
+
+## **************************** OCLC Services *************************************************
+## Some OCLC services have been pre-configured with default settings below. remove the '#' from each line 
+## associated with the desired service, and add additional options as desired 
+
+## -----------------------------  OCLC FirstSearch ----------------------------------------------
+# T OCLC FirstSearch
+# U http://firstsearch.oclc.org/FSIP
+# DJ oclc.org
+
+## ---------------------------- Camio and Archive Grid ---------------------------------------------
+
+# T ArchiveGrid
+# U http://archivegrid.org
+# DJ archivegrid.org
+
+T CAMIO
+U http://camio.oclc.org
+DJ camio.oclc.org
+ 
+## --------------------------- NetLibrary ---------------------------------------------------------
+## Netlibrary can be configured for Single Sign on (SSO) or standard IP recognition access.
+## Edit the appropriate stanza for your isntitution. See http://www.oclc.org/support/documentation/ezproxy/db/netlibrary.htm/ for details
+
+
+## -- Standard IP recognition --
+# Title NetLibrary
+# URL http://www.netlibrary.com/
+# Domain netlibrary.com
+
+## -- Single Sign On (SSO) --
+
+# Title NetLibrary
+# URL http://www.netlibrary.com/
+# NetLibrary [libraryid]
+ 
+## NOTE : Replace [libraryid] in the line above with the appropriate ID
+
+## ************************ USER DEFINED DATABASES *************************************************
+
+## The section below is for all other user-defined databases  
+## Please see: http://www.oclc.org/support/documentation/ezproxy/db/default.htm for configuration
+## information for common and supported stanzas
+
+## You may also want to join the EZproxy listserv
+## To subscribe see: http://www.oclc.org/support/documentation/ezproxy/list.htm 
+
+##Includes to pull in all the UNL vendor configurations
+
+IncludeFile databases/basic_proxies.cfg
+IncludeFile databases/wam_entries.cfg
+# unl related resources are in unl.cfg
+IncludeFile databases/unl.cfg
+
+# following are the longer configuration files
+IncludeFile databases/ebsco.cfg
+IncludeFile databases/gale.cfg
+IncludeFile databases/proquest.cfg
+IncludeFile databases/abc-clio.cfg
+IncludeFile databases/sage.txt
+IncludeFile databases/lexis-nexis-academic.cfg
+IncludeFile databases/acm-digital-library.cfg
+IncludeFile databases/browzine.cfg
+IncludeFile databases/annual-reviews.cfg
+IncludeFile databases/asme.cfg
+IncludeFile databases/elsevier.cfg
+IncludeFile databases/wiley.cfg
+IncludeFile databases/biomedcentral.cfg
+IncludeFile databases/bmj.cfg
+IncludeFile databases/duke-journals.cfg
+IncludeFile databases/geoscience-world.cfg
+IncludeFile databases/web-of-science.cfg
+IncludeFile databases/oxford-journals.cfg
+IncludeFile databases/alexander-street.cfg
+IncludeFile databases/chadwyck.cfg
+
