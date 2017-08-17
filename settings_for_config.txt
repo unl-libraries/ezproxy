@@ -10,6 +10,10 @@ LogFile -strftime ezp%Y%m.log
 LogSPU -strftime spu%Y%m%d.log %{%Y/%m/%d:%H:%M:%S}t\t%h\t%{ezproxy-groups}i\t%{ezproxy-spuaccess}i\t%v\t%U
 
 
+## redirect the users from the menu page to the libraries database pages
+LoginMenu http://libraries.unl.edu/eresources-collections
+
+
 # **************************** Database Definitions *****************************************?
 ##  See http://www.oclc.org/support/documentation/ezproxy/db/default.htm
 
@@ -77,6 +81,7 @@ DJ camio.oclc.org
 # NetLibrary [libraryid]
  
 ## NOTE : Replace [libraryid] in the line above with the appropriate ID
+
 
 ## ************************ USER DEFINED DATABASES *************************************************
 
