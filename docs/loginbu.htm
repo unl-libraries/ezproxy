@@ -1,10 +1,10 @@
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="https://secure.library.unl.edu:443/screens/styles-rev2b.css"/>
-	<link rel="stylesheet" type="text/css" href="https://secure.library.unl.edu:443/apps/CAS/resources/login.css"/>
+        <link rel="stylesheet" type="text/css" href="https://secure.library.unl.edu:443/screens/styles-rev2b.css"/>
+        <link rel="stylesheet" type="text/css" href="https://secure.library.unl.edu:443/apps/CAS/resources/login.css"/>
+<
 </head>
 <body>
-
 <style>
 input {font-family:Arial,sans-serif;}
 form {margin:0;}
@@ -15,6 +15,7 @@ form {margin:0;}
 input.btn-submit {margin:5px;}
 #accessibleForm {border:0;}
 #cas #accessibleForm fieldset input { border:1px solid #999999;}
+.error{ color:red; padding:5px;}
 </style>
 <div class="pageContentInner">
 <h1 class="pageHeader">My Library Login</h1>
@@ -26,7 +27,7 @@ input.btn-submit {margin:5px;}
 <input type="hidden" name="url" value="^U" />
         <!-- Message from client webapp to be displayed on the CAS login screen -->
 <div id="clientmessage">
-<p>
+<p class="error">
 That username or password was incorrect.  Please try again.
 </p>
   <div id="login">
@@ -58,7 +59,7 @@ That username or password was incorrect.  Please try again.
           </fieldset>
         </div>  <!-- end login -->
     <div class="submit">
-                        <input class="btn-submit" accesskey="l" value="LOGIN" tabindex="9" type="submit" />
+<input class="btn-submit" accesskey="l" value="LOGIN" tabindex="9" type="submit" />
 
 
         </div>
@@ -70,11 +71,11 @@ That username or password was incorrect.  Please try again.
 <div class="clear"></div>
 
 <div style="margin:10px 30px;">
-<font size=4>The first time you login to My Library you must establish a password.  Please do not use upper case letters in your password.  <br>
-To set a password, enter your last name, and NUID number, and click login (leave the password field blank).  <br>
-If you already have a password,  you will get an error message.<br>
-   If that happens click <a href=http://library.unl.edu/pinreset>here </a>  to reset your password.  Check your e-mail for additional instructions.
+<font size=4>If yoyu have forgotten your password, you can click <a href=http://library.unl.edu/pinreset>here </a>  to reset your password. Check your e-mail for further instructions.  
+<br />
+The first time you login to My Library you must establish a password. If you have not done so already, please cick <a target=_blank href="https://library.unl.edu/patroninfo">here to do that</a>.  This will open in a new window, which you can close and return to this login page to continue.
 <br><br>For more information on passwords Click <a href=http://library.unl.edu/screens/pinhelp.html>here. </a></p><p>
 </div>
+
 </body>
 </html>
